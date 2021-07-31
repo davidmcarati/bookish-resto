@@ -7,7 +7,7 @@ create TABLE person(
 create TABLE product(
     p_id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    price DECIMAL(5,2)
+    price DECIMAL(10,2)
 );
 
 create TABLE rtable(

@@ -7,6 +7,7 @@ const worker = {
     },
 
     updateRTable  :   async (params) => {
+        params.seats = parseInt(params.seats);
         return await storage.updateRTable(params);
     },
 

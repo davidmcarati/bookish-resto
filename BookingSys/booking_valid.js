@@ -45,6 +45,34 @@ const validators    = {
         params.seats    = parseInt(params.seats);
         isValid         = params.seats !== NaN;
         return isValid;
+    },
+
+    validate_create_product_req  : (params) => {
+        let isValid     = false;
+        isValid         = params.name !== undefined && params.price !== undefined;
+        if(!isValid)    return false;
+        params.price    = parseFloat(params.price);
+        isValid         = params.price !== NaN;
+        return isValid;
+    },
+
+    validate_get_product_data    : (params) => {
+        if(params.id === undefined) { return false; }
+        else                        { return true;  }
+    },
+
+    validate_delete_product      : (params) => {
+        if(params.id === undefined) { return false; }
+        else                        { return true;  }
+    },
+
+    validate_update_product      : (params) => {
+        let isValid     = false;
+        isValid         = params.name !== undefined && params.price !== undefined && params.id !== undefined;
+        if(!isValid)    return false;
+        params.price    = parseFloat(params.price);
+        isValid         = params.price !== NaN;
+        return isValid;
     }
 };
 

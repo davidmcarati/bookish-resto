@@ -22,7 +22,7 @@ create TABLE reserve(
     FOREIGN KEY (p_id) REFERENCES person (person_id),
     rt_id INT,
     FOREIGN KEY (rt_id) REFERENCES rtable (rtable_id),
-    start_time TIMESTAMP,
-    end_time TIMESTAMP,
+    start_time TIMESTAMPTZ,
+    end_time TIMESTAMPTZ,
     orders INT[]
 )

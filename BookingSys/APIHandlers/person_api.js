@@ -1,5 +1,6 @@
 const valid     =   require('../booking_valid.js');
 const worker    =   require('../workers/person_worker.js');
+const reserve   =   require('../workers/reserve_worker');
 
 const usersRouter = {
     post_user   : async (req, res, next) => {
@@ -128,6 +129,7 @@ const DELETE_User       = async (params) => {
     if(!result.dataValid)   {result._status = "400 : Bad Request";  return result;}
     result.user         =   await worker.getUserData(params);
     if(!result.user)        {result._status = "404 : Not Found";    return result;}
+    result.reserve      =   await reserve.deleteReserve_person({p_id : params.id});
     result.user         =   await worker.deleteUser(params);
     result._status      =   "200 : Ok";
     return result;

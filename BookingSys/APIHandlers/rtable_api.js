@@ -1,5 +1,6 @@
 const valid     =   require('./../booking_valid.js');
 const worker    =   require('./../workers/rtable_worker.js');
+const reserve   =   require('./../workers/reserve_worker.js');
 
 const rtableRouter = {
     post_rtable   : async (req, res, next) => {
@@ -128,6 +129,7 @@ const DELETE_RTable         = async (params) => {
     if(!result.dataValid)   {result._status = "400 : Bad Request";  return result;}
     result.rtable       =   await worker.getRTableData(params);
     if(!result.rtable)      {result._status = "404 : Not Found";    return result;}
+    result.reserve      =   await reserve.deleteReserve_rtable({rt_id : params.id});
     result.rtable       =   await worker.deleteRTable(params);
     result._status      =   "200 : Ok";
     return result;

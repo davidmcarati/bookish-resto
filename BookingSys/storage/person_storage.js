@@ -14,6 +14,7 @@ const booking_storage = {
     },
 
     getUser     : async (params) => {
+        console.log(params);
         let person      =   await db.query('SELECT * FROM person where person_id = $1', [params.id]);
         return person.rows[0];
     },

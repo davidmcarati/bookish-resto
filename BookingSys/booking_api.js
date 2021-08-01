@@ -1,8 +1,9 @@
 const express   =   require('express');
 const router    =   express.Router();
-const users     =   require('./APIHandlers/users_api.js');
+const users     =   require('./APIHandlers/person_api.js');
 const rtable    =   require('./APIHandlers/rtable_api.js');
 const products  =   require('./APIHandlers/products_api.js');
+const reserves  =   require('./APIHandlers/reserve_api.js');
 
 router.post     ('/user'        , users.post_user);
 router.put      ('/user'        , users.put_user);
@@ -21,5 +22,7 @@ router.put      ('/product'     , products.put_product);
 router.get      ('/product'     , products.get_product);
 router.get      ('/product/:id' , products.get_product_id);
 router.delete   ('/product/:id' , products.delete_product);
+
+router.post     ('/reserve'     , reserves.post_reserve);
 
 module.exports  = router;

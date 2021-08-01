@@ -1,4 +1,4 @@
-const storage   =   require("./../storage/booking_storage");
+const storage   =   require("../storage/person_storage");
 
 const worker = {
     createUser  :   async (params) => {

@@ -1,7 +1,7 @@
 create TABLE person(
-	person_id SERIAL PRIMARY KEY,
-	username VARCHAR(255),
-	password VARCHAR(255)
+    person_id SERIAL PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255)
 );
 
 create TABLE product(

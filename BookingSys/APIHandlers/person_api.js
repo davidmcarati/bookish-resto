@@ -1,5 +1,5 @@
-const valid     =   require('./../booking_valid.js');
-const worker    =   require('./../workers/booking_worker.js');
+const valid     =   require('../booking_valid.js');
+const worker    =   require('../workers/person_worker.js');
 
 const usersRouter = {
     post_user   : async (req, res, next) => {
